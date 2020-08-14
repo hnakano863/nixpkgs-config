@@ -1,6 +1,6 @@
 {
   allowBroken = false;
-  allowUnfree = false;
+  allowUnfree = true;
   allowUnsupportedSystem = false;
   allowInsecure = false;
   packageOverrides = pkgs:
