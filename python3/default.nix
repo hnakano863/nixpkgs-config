@@ -7,6 +7,8 @@ pkgs.python3.override {
     lifelines = super.callPackage ./lifelines/default.nix { pkgs = super; };
 
     python-levenstein = super.callPackage ./python-levenstein/default.nix { pkgs = super; };
+
+    sqlalchemy-access = super.callPackage ./sqlalchemy-access/default.nix { pkgs = super; };
   };
   self = pkgs.python3;
 }
