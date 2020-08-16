@@ -19,8 +19,8 @@
   # changes in each release.
   home.stateVersion = "20.09";
 
-  home.packages = [
-    pkgs.nixfmt
+  home.packages = with pkgs; [
+    nixfmt bat exa fd ripgrep
   ];
 
   programs.bash = {
