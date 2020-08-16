@@ -26,6 +26,7 @@
   programs.bash = {
     enable = true;
     profileExtra = ''
+      export XDG_DATA_DIRS=$HOME/.nix-profile/share''${XDG_DATA_DIRS:+:}$XDG_DATA_DIRS
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export QT_QPA_PLATFORMTHEME="qt5ct"
       export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -64,5 +65,10 @@
     userName = "hnakano863";
     userEmail = "notchi863@gmail.com";
     extraConfig = { pull.rebase = false; };
+  };
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [ epkgs.vterm ];
   };
 }
