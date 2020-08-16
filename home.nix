@@ -18,4 +18,51 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "20.09";
+
+  home.packages = [
+    pkgs.nixfmt
+  ];
+
+  programs.bash = {
+    enable = true;
+    profileExtra = ''
+      export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
+      export QT_QPA_PLATFORMTHEME="qt5ct"
+      export QT_AUTO_SCREEN_SCALE_FACTOR=0
+      export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+    '';
+
+    initExtra = ''
+      if [ -z $IN_NIX_SHELL ]; then
+        exec fish
+      fi
+    '';
+  };
+
+  programs.fish = {
+    enable = true;
+
+    interactiveShellInit = ''
+      set -gx fish_user_paths $HOME/.emacs.d/bin $HOME/.yarn/bin $HOME/.cargo/bin
+    '';
+
+    functions = {
+      vterm_printf = {
+        body = builtins.readFile ./home/fish_functions/vterm_printf.fish;
+      };
+    };
+  };
+
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "hnakano863";
+    userEmail = "notchi863@gmail.com";
+    extraConfig = { pull.rebase = false; };
+  };
 }
