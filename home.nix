@@ -20,7 +20,7 @@
   home.stateVersion = "20.09";
 
   home.packages = with pkgs; [
-    nixfmt bat exa fd ripgrep
+    nixfmt bat exa fd ripgrep coq coqPackages.ssreflect
   ];
 
   programs.bash = {
