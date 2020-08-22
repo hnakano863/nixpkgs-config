@@ -56,7 +56,7 @@
 
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: [ epkgs.vterm ];
+    extraPackages = epkgs: with epkgs; [ vterm proofgeneral_HEAD ];
   };
 
   programs.tmux = {
