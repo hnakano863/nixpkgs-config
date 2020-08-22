@@ -66,4 +66,10 @@
     shortcut = "a";
     terminal = "screen-256color";
   };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableNixDirenvIntegration = true;
+  };
 }
