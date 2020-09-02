@@ -21,6 +21,11 @@
     nixfmt bat exa fd ripgrep coq coqPackages.ssreflect
   ];
 
+  programs.go = {
+    enable = true;
+    goPath = "go";
+  };
+
   programs.bash = {
     enable = true;
    
@@ -72,4 +77,6 @@
     enableBashIntegration = true;
     enableNixDirenvIntegration = true;
   };
+
+  services.lorri.enable = true;
 }
