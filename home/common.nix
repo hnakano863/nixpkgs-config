@@ -1,5 +1,4 @@
-{ pkgs }:
-{
+{ pkgs }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -18,7 +17,14 @@
   home.stateVersion = "20.09";
 
   home.packages = with pkgs; [
-    nixfmt bat exa fd ripgrep coq coqPackages.ssreflect
+    nixfmt
+    bat
+    exa
+    fd
+    ripgrep
+    coq
+    coqPackages.ssreflect
+    stack
   ];
 
   programs.go = {
@@ -28,7 +34,7 @@
 
   programs.bash = {
     enable = true;
-   
+
     initExtra = ''
       if [ -z $IN_NIX_SHELL ]; then
         exec fish
