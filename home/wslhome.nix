@@ -17,7 +17,7 @@
   '';
 
   programs.fish.interactiveShellInit = ''
-    set -gx fish_user_paths $HOME/go/bin $HOME/.emacs.d/bin $HOME/.yarn/bin $HOME/.cargo/bin
+    set -gx fish_user_paths $HOME/go/bin $HOME/.emacs.d/bin $HOME/.yarn/bin $HOME/.cargo/bin $HOME/.local/bin
   '';
 
 }
