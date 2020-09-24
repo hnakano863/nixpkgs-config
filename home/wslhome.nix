@@ -1,14 +1,19 @@
-{ pkgs }: {
+
+{ pkgs }:
+{
   home.homeDirectory = "/home/hnakano";
 
-  home.packages = with pkgs; [ coq coqPackages.ssreflect ];
+  home.packages = with pkgs; [
+    sqlite 
+  ];
 
   programs.bash.profileExtra = ''
     export XDG_DATA_DIRS=$HOME/.nix-profile/share''${XDG_DATA_DIRS:+:}$XDG_DATA_DIRS
-    export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-    export QT_QPA_PLATFORMTHEME="qt5ct"
-    export QT_AUTO_SCREEN_SCALE_FACTOR=0
-    export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+    export LIBGL_ALWAYS_INDIRECT=1
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+    if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+        . $HOME/.nix-profile/etc/profile.d/nix.sh;
+    fi
   '';
 
   programs.fish.interactiveShellInit = ''
