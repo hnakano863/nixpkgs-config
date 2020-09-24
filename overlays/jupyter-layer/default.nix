@@ -1,4 +1,4 @@
-self: super: {
+self: super: rec {
   defaultKernelSpec = { python3 }: {
     python3 = {
       displayName = "Python 3";
@@ -22,4 +22,22 @@ self: super: {
       JUPYTER_PATH = "${kernel.out}";
     };
 
+  jupyterBatteryIncluded = jupyterEnv (defaultKernelSpec {
+    python3 = self.python3.withPackages (ps:
+      with ps; [
+        ipykernel
+        numpy
+        pandas
+        matplotlib
+        pyarrow
+        pandas
+        openpyxl
+        xlrd
+        tabulate
+        seaborn
+        statsmodels
+        chardet
+        lifelines
+      ]);
+  });
 }
