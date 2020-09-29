@@ -23,7 +23,7 @@
     fd
     ripgrep
     source-han-code-jp
-    rictydiminished-with-firacode
+    cica
     fontconfig
   ];
 
