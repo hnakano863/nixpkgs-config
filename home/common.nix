@@ -85,7 +85,7 @@
     enableNixDirenvIntegration = true;
   };
 
-  services.lorri.enable = true;
+  # services.lorri.enable = true;
 
   fonts.fontconfig.enable = true;
 }
