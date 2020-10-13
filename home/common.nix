@@ -25,6 +25,7 @@
     source-han-code-jp
     cica
     fontconfig
+    nodejs
   ];
 
   programs.go = {
